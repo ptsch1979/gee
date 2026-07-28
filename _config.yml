@@ -1,6 +1,7 @@
 title: 测试笔记
 description: 如何做一个线上笔记的保姆级教程
-theme: just-the-docs
+# theme: just-the-docs
+remote_theme: just-the-docs/just-the-docs
 
 url: https://ptsch1979.github.io/test_note
 
