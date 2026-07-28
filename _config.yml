@@ -1,8 +1,8 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: 测试笔记
+description: 如何做一个线上笔记的保姆级教程
 theme: just-the-docs
 
-url: https://just-the-docs.github.io
+url: https://ptsch1979.github.io/test_note
 
 aux_links:
   Template Repository: https://github.com/just-the-docs/just-the-docs-template
