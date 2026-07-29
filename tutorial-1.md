@@ -1,4 +1,5 @@
 ---
+layout: default
 title: "教程 1：测试笔记"
 nav_order: 1
 ---
