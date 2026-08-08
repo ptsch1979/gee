@@ -2,3 +2,13 @@ title: Home
 description: Welcome
 theme: just-the-docs
 url: https://ptsch1979.github.io/test_note
+head: |
+  <style>
+    :root {
+      --color-fg-accent: #0056D2 !important;
+      --color-accent-fg: #0056D2 !important;
+      --color-accent-emphasis: #0056D2 !important;
+      --color-link: #0056D2 !important;
+      --color-btn-primary-bg: #0056D2 !important;
+    }
+  </style>
