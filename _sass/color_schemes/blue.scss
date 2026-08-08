@@ -18,3 +18,9 @@ $search-background-color: $white !default;
 $search-result-preview-color: $grey-dk-100 !default;
 
 @import "./vendor/accessible-pygments/github-light";
+
+/* 这是 blue.scss 的加载标记 */
+body::after {
+  content: "blue";
+  display: none;
+}
