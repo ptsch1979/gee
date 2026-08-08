@@ -1,8 +1,12 @@
 title: 测试笔记
+
 description: 如何做一个线上笔记的保姆级教程
+
 theme: just-the-docs
 
 url: https://ptsch1979.github.io/test_note
 
 aux_links:
   Contact Us: https://github.com/ptsch1979
+
+footer_content: "© 2026 川的 GEE 学习笔记"
