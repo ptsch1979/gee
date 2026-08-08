@@ -1,5 +1,6 @@
 title: Home
 description: Welcome
 theme: just-the-docs
+sass_dir: _sass
 color_scheme: blue
 url: https://ptsch1979.github.io/test_note
