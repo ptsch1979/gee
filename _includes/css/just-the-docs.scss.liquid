@@ -10,3 +10,6 @@ $logo: "{{ site.logo | relative_url }}";
 @import "./modules";
 {% include css/callouts.scss.liquid color_scheme = include.color_scheme %}
 {% include css/custom.scss.liquid %}
+
+{% comment %} 强制加载蓝色配色 {% endcomment %}
+@import "../color_schemes/blue";
