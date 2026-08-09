@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "lab02"
+title: "lab 02"
 nav_order: 2
 ---
 
