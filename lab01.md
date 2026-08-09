@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "教程 1：测试笔记"
+title: "lab01 Get Started"
 nav_order: 1
 ---
 
