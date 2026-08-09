@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "lab01 Get Started"
+title: "lab 01"
 nav_order: 1
 ---
 
