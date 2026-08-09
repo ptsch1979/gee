@@ -4,14 +4,23 @@ layout: default
 
 # Welcome
 
-| 编号 | 教程 | 说明 |
-| :---: | :--- | :--- |
-| 1 | [初识 GEE 编辑器]({% link lab01.md %}) | 界面介绍与 JavaScript 基础 |
-| 2 | [影像与矢量显示]({% link lab02.md %}) | 待更新 |
-| 3 | [影像合成与镶嵌]({% link lab03.md %}) | 待更新 |
+欢迎！这里是 Google Earth Engine 的完整学习笔记。
 
-| 编号 | 教程 | 说明 | 预览 |
-| :---: | :--- | :--- | :---: |
-| 1 | [初识 GEE 编辑器]({% link lab01.md %}) | 界面介绍与 JavaScript 基础 | ![GEE](https://ptsch1979.github.io/gee/assets/images/small-image.jpg) |
-| 2 | [影像与矢量显示]({% link lab02.md %}) | 待更新 | 🌐 |
-| 3 | [影像合成与镶嵌]({% link lab03.md %}) | 待更新 | 🧩 |
+## 关于本笔记
+
+- GEE 的核心概念和常用技巧
+- 所有代码示例均可在 GEE 编辑器中运行
+- 适合 GIS 初学者和遥感爱好者
+
+## 如何使用
+
+- 左侧 **导航栏** 浏览所有教程
+- 顶部 **搜索框** 快速查找内容
+
+## 更新
+
+*最后更新：{{ site.time | date: "%Y 年 %m 月 %d 日" }}*
+
+---
+
+*本站仅供学习交流使用*
