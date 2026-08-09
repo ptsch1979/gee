@@ -56,7 +56,7 @@ print('结果', result);
 ## 3. 地理空间核心对象（三巨头）
 ### 3.1 ee.Image —— 单时相影像
 
-```javascipt
+```javascript
 // 加载一幅Landsat 8影像
 var image = ee.Image('LANDSAT/LC08/C02/T1_TOA/LC08_123032_20200101');
 
@@ -70,7 +70,7 @@ var nir = image.select('B5');  // 近红外
 
 ### 3.2 ee.ImageCollection —— 影像集合（时间序列基础）
 
-```javascipt
+```javascript
 // 加载2020年所有Landsat 8影像（研究区过滤在后面）
 var collection = ee.ImageCollection('LANDSAT/LC08/C02/T1_TOA')
   .filterDate('2020-01-01', '2020-12-31');
@@ -82,7 +82,7 @@ print('影像数量', collection.size());
 var medianImage = collection.median();
 ```
 
-### 3.2 ee.Geometry 与 ee.Feature —— 形状和属性：空间范围
+### 3.3 ee.Geometry 与 ee.Feature —— 形状和属性：空间范围
 
 ```javascript
 // 点（森林样地）
@@ -98,17 +98,8 @@ var forestArea = ee.FeatureCollection('users/yourname/forest_boundary');
 ## 4. 最常用操作
 ### 4.1 研究区裁剪（clip）
 ```javascript
-// 方法一：使用表达式（推荐，可读性强）
-var ndvi = image.expression(
-  '(NIR - RED) / (NIR + RED)',
-  {
-    'NIR': image.select('B5'),
-    'RED': image.select('B4')
-  }
-);
-
-// 方法二：使用normalizedDifference（更简洁，Landsat专用）
-var ndvi2 = image.normalizedDifference(['B5', 'B4']);
+// 将影像裁剪到你的研究区
+var clipped = image.clip(roi);
 ```
 
 ### 4.2 波段计算（NDVI示例）
@@ -135,7 +126,7 @@ var collectionWithNDVI = collection.map(function(img) {
 });
 ```
 
-### 4.4 影像集合的映射操作（批量处理）
+### 4.4 影像集合的筛选与排序
 ```javascript
 // 筛选云量小于20%的影像
 var clean = collection.filter(ee.Filter.lt('CLOUD_COVER', 20));
@@ -170,7 +161,7 @@ Map.addLayer(ndvi, ndviVis, 'NDVI');
 
 用Map.addLayer()分别显示假彩色合成影像、NDVI和EVI，设置合适的配色。
 
-参考代码：
+参考代码框架：
 ```javascript
 // 1. 定义研究区（替换为你的矢量或坐标）
 var roi = ______;  
@@ -203,4 +194,40 @@ var evi = compositeClip.expression(
 Map.addLayer(______, ______, 'Composite');
 Map.addLayer(______, {min: -1, max: 1, palette: ['______']}, 'NDVI');
 Map.addLayer(______, {min: -1, max: 1, palette: ['______']}, 'EVI');
+```
+
+填充参考：
+```javascript
+// 1. 研究区（先在地图上画一个多边形，导入为 table，或直接画 roi）
+var roi = table.geometry(); // 或者 ee.Geometry.Rectangle([...])
+
+// 2. 日期和云量
+var collection = ee.ImageCollection('LANDSAT/LC08/C02/T1_TOA')
+  .filterDate('2020-06-01', '2020-09-30')  // 生长季
+  .filter(ee.Filter.lt('CLOUD_COVER', 10)); // 小于10%
+
+// 3. 中值合成 
+var composite = collection.median();
+
+// 4. 裁剪研究区
+var compositeClip = composite.clip(roi); 
+
+// 5. 计算NDVI（基于裁剪后的影像）
+var ndvi = compositeClip.normalizedDifference(['B5', 'B4']);
+
+// 6. 计算EVI（显式传入波段）
+var evi = compositeClip.expression(
+  '2.5 * (NIR - RED) / (NIR + 6*RED - 7.5*BLUE + 1)',
+  {
+    'NIR': compositeClip.select('B5'),
+    'RED': compositeClip.select('B4'),
+    'BLUE': compositeClip.select('B2')
+  }
+);
+
+// 7. 可视化（别忘了先把地图中心对准研究区）
+Map.centerObject(roi, 10); 
+Map.addLayer(compositeClip, {bands: ['B5', 'B4', 'B3'], min: 0, max: 0.3}, 'Composite');
+Map.addLayer(ndvi, {min: -1, max: 1, palette: ['blue', 'white', 'green']}, 'NDVI');
+Map.addLayer(evi, {min: -1, max: 1, palette: ['brown', 'yellow', 'darkgreen']}, 'EVI');
 ```
