@@ -231,3 +231,5 @@ Map.addLayer(compositeClip, {bands: ['B5', 'B4', 'B3'], min: 0, max: 0.3}, 'Comp
 Map.addLayer(ndvi, {min: -1, max: 1, palette: ['blue', 'white', 'green']}, 'NDVI');
 Map.addLayer(evi, {min: -1, max: 1, palette: ['brown', 'yellow', 'darkgreen']}, 'EVI');
 ```
+
+对卫星遥感有疑问 -> [sup01](https://ptsch1979.github.io/gee/sup01.html) 
