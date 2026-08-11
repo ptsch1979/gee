@@ -4,13 +4,14 @@ layout: default
 
 # Welcome
 
-欢迎！这里是 Google Earth Engine 的完整学习笔记。
+欢迎！这里是 Google Earth Engine 个人向学习笔记。
 
 ## 关于本笔记
 
-- GEE 的核心概念和常用技巧
+- GEE 核心概念与常用技巧
 - 所有代码示例均可在 GEE 编辑器中运行
 - 适合 GIS 初学者和遥感爱好者
+- lab包含教程与练习，sup为补充（老手可跳不阅）
 
 ## 如何使用
 
