@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Sup 01"
+title: "sup 01"
 nav_order: 99
 ---
 
