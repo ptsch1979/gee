@@ -18,7 +18,7 @@ Landsat/Sentinel数据调用
 3. 在地图上按住鼠标左键，拖拽框出你想研究的区域（例如 Syracuse）。
 4. 在代码编辑器顶部的 **“Imports”** 区域，点击默认名称（如 `geometry`），将其重命名为 **`aoi`**（Area Of Interest 缩写）。
 
-## 2. 最终核心代码
+## 2. 加载真彩图像
 
 将以下代码复制到 GEE 代码编辑器中运行：
 
@@ -41,3 +41,8 @@ Map.addLayer(myimage, {
   min: 0,
   max: 0.3
 }, '我的真彩色影像');
+```
+
+## 3. 练习
+
+试着独立完成一次AOI定义与卫星图像加载。案例使用的影像是Landsat 9，你可以尝试 Sentinel 2。
