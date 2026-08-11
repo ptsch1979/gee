@@ -45,4 +45,9 @@ Map.addLayer(myimage, {
 
 ## 3. 练习
 
-试着独立完成一次AOI定义与卫星图像加载。案例使用的影像是Landsat 9，你可以尝试 Sentinel 2。
+试着独立完成一次AOI定义与卫星图像加载。
+
+案例使用的影像是Landsat 9，你可以尝试 Sentinel 2。
+
+如果对波段的编号含义（诸如B4、B3）有疑问 -> [sup 02](https://ptsch1979.github.io/gee/sup02.html)
+
